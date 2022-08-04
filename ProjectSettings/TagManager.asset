@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gloves
+  - Broom
   layers:
   - Default
   - TransparentFX
