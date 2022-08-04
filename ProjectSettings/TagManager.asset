@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gloves
   - Broom
+  - Cleaner
   layers:
   - Default
   - TransparentFX
