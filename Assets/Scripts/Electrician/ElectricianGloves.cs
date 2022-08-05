@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ElectricianGloves : MonoBehaviour
 {
+    [SerializeField] string GloveTag;
     [SerializeField] Material GlovesMaterial;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Gloves")
+        if(other.gameObject.tag==GloveTag)
         {
             transform.GetComponent<SkinnedMeshRenderer>().material = GlovesMaterial;
             Destroy(transform.GetComponent<BoxCollider>());
+            other.gameObject.SetActive(false);
             this.enabled = false;
         }
     }

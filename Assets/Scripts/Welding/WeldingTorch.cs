@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Oculus.Interaction.HandPosing;
+    
 public class WeldingTorch : MonoBehaviour
 {
     bool Picked;
@@ -11,11 +12,6 @@ public class WeldingTorch : MonoBehaviour
 
     [SerializeField] ParticleSystem Flame;
     [SerializeField] ParticleSystem Spark;
-
-    public XRDirectInteractor rHand;
-    public XRDirectInteractor lHand;
-
-
 
     public static WeldingTorch weldingTorch
     {
@@ -30,15 +26,16 @@ public class WeldingTorch : MonoBehaviour
     {
         Picked = false;
         
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Picked)
+        if (Picked)
         {
-            if(OVRInput.ge)
-            if(OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+            
+            if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
             {
                 WeldingMode = true;
                 if(ObjectInFront)
@@ -74,6 +71,8 @@ public class WeldingTorch : MonoBehaviour
     {
         Debug.Log("Torch Picked" + Status);
         Picked = Status;
+        
+        
     }
 
     public void ObjectInTrigger(bool Status)
