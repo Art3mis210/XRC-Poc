@@ -7,6 +7,7 @@ TagManager:
   - Gloves
   - Broom
   - Cleaner
+  - WeldingTorch
   layers:
   - Default
   - TransparentFX
