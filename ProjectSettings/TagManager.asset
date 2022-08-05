@@ -10,6 +10,7 @@ TagManager:
   - GlovesL
   - GlovesR
   - MCB
+  - NewPlug
   layers:
   - Default
   - TransparentFX
