@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WeldingHelmet : MonoBehaviour
 {
+    [SerializeField] Transform PlayerCamera;
     public void HelmetPicked()
     {
-        //Helmet Picked
-        transform.gameObject.SetActive(false);
+        if(Vector3.Distance(transform.position,PlayerCamera.position)<0.5f)
+            transform.gameObject.SetActive(false);
     }
 }

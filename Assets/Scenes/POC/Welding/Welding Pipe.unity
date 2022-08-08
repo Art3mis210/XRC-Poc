@@ -27878,6 +27878,15 @@ MonoBehaviour:
   _grabbable: {fileID: 1768601297}
   _onAdd:
     m_PersistentCalls:
+      m_Calls: []
+  _onRemove:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTransfer:
+    m_PersistentCalls:
+      m_Calls: []
+  _onUpdate:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1768601298}
         m_TargetAssemblyTypeName: WeldingHelmet, Assembly-CSharp
@@ -27891,15 +27900,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onRemove:
-    m_PersistentCalls:
-      m_Calls: []
-  _onTransfer:
-    m_PersistentCalls:
-      m_Calls: []
-  _onUpdate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1768601296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27995,6 +27995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfaed2a167f881248bc1c6c20759684a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 1893554204}
 --- !u!114 &1768601299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30349,6 +30350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bb00e31726c08e4b8db0c030a5fdd4e, type: 3}
+--- !u!4 &1893554204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1617454033393781111, guid: 2bb00e31726c08e4b8db0c030a5fdd4e, type: 3}
+  m_PrefabInstance: {fileID: 1893554203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902910459
 GameObject:
   m_ObjectHideFlags: 0
