@@ -6,10 +6,13 @@ public class ElectricianGloves : MonoBehaviour
 {
     [SerializeField] string GloveTag;
     [SerializeField] Material GlovesMaterial;
+    [SerializeField] int stepNumber;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag==GloveTag)
         {
+            GameManager.instance.CheckBool(stepNumber);
+            GameManager.instance.CheckSteps(stepNumber);
             transform.GetComponent<SkinnedMeshRenderer>().material = GlovesMaterial;
             Destroy(transform.GetComponent<BoxCollider>());
             other.gameObject.SetActive(false);
