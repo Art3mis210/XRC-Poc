@@ -8,6 +8,7 @@ public class CutJoinWires : MonoBehaviour
     [SerializeField] Animator bottomWires;
 
     [SerializeField] GameObject PlaceHolderMCB;
+    [SerializeField] int stepNumber,stepNumber2,stepNumber3;
     bool MCBCanBePlaced;
     bool MCBPlaced;
 
@@ -18,12 +19,16 @@ public class CutJoinWires : MonoBehaviour
             topWires.SetBool("Cut", true);
             bottomWires.SetBool("Cut", true);
             MCBCanBePlaced = true;
+            GameManager.instance.CheckBool(stepNumber);
+            GameManager.instance.CheckSteps(stepNumber);
         }
         else
         {
             topWires.SetBool("Cut", false);
             bottomWires.SetBool("Cut", false);
             MCBCanBePlaced = false;
+            GameManager.instance.CheckBool(stepNumber3);
+            GameManager.instance.CheckSteps(stepNumber3);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -35,6 +40,8 @@ public class CutJoinWires : MonoBehaviour
                 other.transform.parent.gameObject.SetActive(false);
                 PlaceHolderMCB.SetActive(true);
                 MCBPlaced = true;
+                GameManager.instance.CheckBool(stepNumber2);
+                GameManager.instance.CheckSteps(stepNumber2);
             }
         }
     }

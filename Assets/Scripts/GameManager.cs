@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public int count = 0;
     public TMPro.TextMeshProUGUI score;
     public List<bool> checkList = new List<bool>();
+    public List<Image> marks = new List<Image>();
+
     private void Awake()
     {
         if(instance!=null)
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void CheckBool(int n)
     {
         checkList[n] = true;
+        marks[n].color = Color.green;
     }
     public void CheckSteps(int n)
     {

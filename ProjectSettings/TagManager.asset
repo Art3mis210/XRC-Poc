@@ -11,6 +11,7 @@ TagManager:
   - GlovesR
   - MCB
   - NewPlug
+  - Lever
   layers:
   - Default
   - TransparentFX
