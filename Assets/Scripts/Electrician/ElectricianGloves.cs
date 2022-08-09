@@ -11,7 +11,6 @@ public class ElectricianGloves : MonoBehaviour
     {
         if(other.gameObject.tag==GloveTag)
         {
-            GameManager.instance.CheckBool(stepNumber);
             GameManager.instance.CheckSteps(stepNumber);
             transform.GetComponent<SkinnedMeshRenderer>().material = GlovesMaterial;
             Destroy(transform.GetComponent<BoxCollider>());
