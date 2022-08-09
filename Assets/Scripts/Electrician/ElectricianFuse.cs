@@ -37,6 +37,17 @@ public class ElectricianFuse : MonoBehaviour
 
     public void TurnOnMicrowave(bool Status)
     {
-        MicrowaveLight.SetActive(Status);
+        if (Status)
+        {
+            Invoke("MicrowaveStart", 2f);
+        }
+        else
+        {
+            MicrowaveLight.SetActive(false);
+        }
+    }
+    void MicrowaveStart()
+    {
+        MicrowaveLight.SetActive(true);
     }
 }

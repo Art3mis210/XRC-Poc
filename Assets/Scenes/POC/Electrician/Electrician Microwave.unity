@@ -3769,6 +3769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GloveTag: GlovesR
   GlovesMaterial: {fileID: 2100000, guid: 70798d864b6f6f747997969b95fdc5ab, type: 2}
+  stepNumber: 0
 --- !u!65 &931960818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3796,6 +3797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GloveTag: GlovesL
   GlovesMaterial: {fileID: 2100000, guid: 70798d864b6f6f747997969b95fdc5ab, type: 2}
+  stepNumber: 0
 --- !u!65 &931960820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4678,7 +4680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PluggedIn: 1
   CoolDownTime: 2
-  Fuse: {fileID: 0}
+  Fuse: {fileID: 811787302}
 --- !u!1 &1407432399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6277,6 +6279,56 @@ Transform:
   - {fileID: 2011792709}
   m_Father: {fileID: 390129987}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1742727972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742727974}
+  - component: {fileID: 1742727973}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1742727973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742727972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe740504805b68f499c7f53c8e475220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  score: {fileID: 0}
+  checkList: 
+  marks: []
+  wrong: {fileID: 0}
+  right: {fileID: 0}
+--- !u!4 &1742727974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742727972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.7012825, y: -1.0468416, z: -17.632748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1747146421
 GameObject:
