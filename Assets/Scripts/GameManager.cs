@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI score;
     public List<bool> checkList = new List<bool>();
     public List<Image> marks = new List<Image>();
+    public AudioClip wrong, right;
+    private AudioSource src;
 
     private void Awake()
     {
@@ -21,6 +23,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    private void Start()
+    {
+        src = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -40,11 +47,15 @@ public class GameManager : MonoBehaviour
             {
                 count = count - 10;
                 Debug.Log("Wrong");
+                src.clip = wrong;
+                src.Play();
             }
             else
             {
                 count = count + 10;
                 Debug.Log("Right");
+                src.clip = right;
+                src.Play();
             }
         }
         for(int i =0;i<n;i++)
@@ -53,12 +64,15 @@ public class GameManager : MonoBehaviour
             {
                 count = count - 10;
                 Debug.Log("Wrong");
-            }
-            else
-            {
-                count = count + 10;
-                Debug.Log("Right");
+                src.clip = wrong;
+                src.Play();
+                return;
             }
         }
+        count = count + 10;
+        Debug.Log("Right");
+        src.clip = right;
+        src.Play();
+
     }
 }
