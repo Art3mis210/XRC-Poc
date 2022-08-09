@@ -8,6 +8,8 @@ public class MicrowaveWire : MonoBehaviour
     [SerializeField] float CoolDownTime=3;
     float InteractionTime = 0;
     Animator WireAnimator;
+
+    [SerializeField] ElectricianFuse Fuse;
     private void Start()
     {
         WireAnimator = GetComponent<Animator>();
@@ -26,6 +28,10 @@ public class MicrowaveWire : MonoBehaviour
             PluggedIn = !PluggedIn;
             WireAnimator.SetBool("PluggedIn", PluggedIn);
             InteractionTime = CoolDownTime;
+            if(Fuse.NewFuseAdded)
+            {
+                Fuse.TurnOnMicrowave(PluggedIn);
+            }
         }
     }
 

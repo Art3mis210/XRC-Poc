@@ -11,7 +11,11 @@ TagManager:
   - GlovesR
   - MCB
   - NewPlug
+<<<<<<< Updated upstream
   - Lever
+=======
+  - Fuse
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
