@@ -8,6 +8,9 @@ public class WaterPuddle : MonoBehaviour
     AudioSource audioS;
 
     [SerializeField]
+    int stepNumber;
+
+    [SerializeField]
     AudioClip waterCleanSound;
 
     [SerializeField]
@@ -20,6 +23,7 @@ public class WaterPuddle : MonoBehaviour
             RemainingWater--;
             if (RemainingWater == 0)
             {
+                GameManager.instance.CheckSteps(stepNumber);
                 gameObject.SetActive(false);
             }
 

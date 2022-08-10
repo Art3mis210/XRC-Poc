@@ -39,17 +39,16 @@ public class GameManager : MonoBehaviour
     {
         checkList[n] = true;
         marks[n].color = Color.green;
-        if(n+1 < tasks.Count)
-        tasks[n + 1].OutlineColor = Color.green;
     }
     public void CheckSteps(int n)
     {
+        CheckBool(n);
         if (n == 0)
         {
                 count = count + 10;
                 src.clip = right;
                 src.Play();
-                CheckBool(n);
+                TaskCheck(n);
         }
         else
         {
@@ -60,15 +59,27 @@ public class GameManager : MonoBehaviour
                 {
                     count = count - 10;
                     src.clip = wrong;
-                    src.Play();
+                    src.Play(); 
                     return;
                 }
             }
             count = count + 10;
             src.clip = right;
             src.Play();
-            CheckBool(n);
+            TaskCheck(n);
         }
 
+    }
+
+    public void TaskCheck(int n)
+    {
+        for(int i = n;i<checkList.Count;i++)
+        {
+                if (checkList[i] == false)
+                {
+                    tasks[i].OutlineColor = Color.green;
+                    return;
+                }
+        }
     }
 }

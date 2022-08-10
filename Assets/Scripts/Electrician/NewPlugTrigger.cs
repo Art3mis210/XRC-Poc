@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewPlugTrigger : MonoBehaviour
 {
     [SerializeField] TVPlug tvPlug;
+    [SerializeField] int stepNumber;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="NewPlug")
@@ -12,6 +13,7 @@ public class NewPlugTrigger : MonoBehaviour
             tvPlug.NewPlugAdded();
             other.gameObject.SetActive(false);
             transform.gameObject.SetActive(false);
+            GameManager.instance.CheckSteps(stepNumber);
         }
     }
 }

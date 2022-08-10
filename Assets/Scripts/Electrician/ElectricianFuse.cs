@@ -11,6 +11,9 @@ public class ElectricianFuse : MonoBehaviour
     [SerializeField] float DoorTargetRotation;
     public bool FuseRemoved;
     public bool NewFuseAdded;
+    public MicrowaveWire wire;
+    public int stepNumber1,stepNumber2;
+    public Outline line,line2;
 
 
     public void RemoveFuse()
@@ -19,6 +22,8 @@ public class ElectricianFuse : MonoBehaviour
         {
             FuseRemoved = true;
             BrokenFuseAnimator.SetBool("Remove", true);
+            GameManager.instance.CheckSteps(stepNumber1);
+            line.OutlineColor = Color.red;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -31,6 +36,8 @@ public class ElectricianFuse : MonoBehaviour
                 Fuse.SetActive(true);
                 Fuse.GetComponent<Animator>().SetBool("Insert", true);
                 NewFuseAdded = true;
+                wire.enabled = true;
+                GameManager.instance.CheckSteps(stepNumber2);
             }
         }
     }

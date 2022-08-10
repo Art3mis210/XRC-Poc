@@ -9,11 +9,15 @@ public class TVPlug : MonoBehaviour
     [SerializeField] GameObject NewPlug;
     [SerializeField] GameObject UnPlugInteractable;
     [SerializeField] GameObject BrokenPlug;
+    [SerializeField] int stepNumber1, stepNumber2;
+    [SerializeField] Outline line;
     public void PullOutBrokenPlug()
     {
         TVWireAnimator.SetBool("PlugOutWire", true);
         UnPlugInteractable.SetActive(false);
         NewPlugTrigger.SetActive(true);
+        GameManager.instance.CheckSteps(stepNumber1);
+        line.OutlineColor = Color.red;
     }
 
     public void NewPlugAdded()
@@ -26,5 +30,6 @@ public class TVPlug : MonoBehaviour
     public void NewPlugPluggedIN()
     {
         TVWireAnimator.SetBool("PlugOutWire", false);
+        GameManager.instance.CheckSteps(stepNumber2);
     }
 }
