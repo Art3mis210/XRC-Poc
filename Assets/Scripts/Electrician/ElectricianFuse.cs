@@ -32,12 +32,12 @@ public class ElectricianFuse : MonoBehaviour
         {
             if(other.gameObject.tag=="Fuse")
             {
+                GameManager.instance.CheckSteps(stepNumber2);
                 other.gameObject.SetActive(false);
                 Fuse.SetActive(true);
                 Fuse.GetComponent<Animator>().SetBool("Insert", true);
                 NewFuseAdded = true;
                 wire.enabled = true;
-                GameManager.instance.CheckSteps(stepNumber2);
             }
         }
     }
