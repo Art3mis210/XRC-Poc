@@ -12,24 +12,30 @@ public class CutJoinWires : MonoBehaviour
     public Outline line1,line2;
     bool MCBCanBePlaced;
     bool MCBPlaced;
+    bool TaskCompleted;
 
     public void CutJoin()
     {
-        if(!MCBPlaced)
+        if (!TaskCompleted)
         {
-            topWires.SetBool("Cut", true);
-            bottomWires.SetBool("Cut", true);
-            MCBCanBePlaced = true;
-            GameManager.instance.CheckSteps(stepNumber);
-            line1.OutlineColor = Color.red;
-        }
-        else
-        {
-            topWires.SetBool("Cut", false);
-            bottomWires.SetBool("Cut", false);
-            MCBCanBePlaced = false;
-            GameManager.instance.CheckSteps(stepNumber3);
-            line1.OutlineColor = Color.red;
+            if (!MCBPlaced)
+            {
+                topWires.SetBool("Cut", true);
+                bottomWires.SetBool("Cut", true);
+                MCBCanBePlaced = true;
+                GameManager.instance.CheckSteps(stepNumber);
+                line1.OutlineColor = Color.red;
+            }
+            else
+            {
+                TaskCompleted = true;
+                topWires.SetBool("Cut", false);
+                bottomWires.SetBool("Cut", false);
+                MCBCanBePlaced = false;
+                GameManager.instance.CheckSteps(stepNumber3);
+                line1.OutlineColor = Color.red;
+                this.enabled = false;
+            }
         }
     }
     private void OnTriggerEnter(Collider other)

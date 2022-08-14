@@ -8,7 +8,7 @@ public class WeldObject : MonoBehaviour
     [SerializeField] Vector3 EndPos;
     [SerializeField] float LerpValue = 1;
     [SerializeField] GameObject WeldLine;
-
+    [SerializeField] int stepumber;
 
     // Update is called once per frame
     void Start()
@@ -27,9 +27,18 @@ public class WeldObject : MonoBehaviour
             }
             else
             {
-                if(WeldLine!=null)
-                    WeldLine.SetActive(true);
-                this.enabled = false;
+                if (WeldLine != null)
+                {
+                    if(!WeldLine.activeInHierarchy)
+                    {
+                        WeldLine.SetActive(true);
+                        GameManager.instance.CheckSteps(stepumber);
+                        this.enabled = false;
+                    }
+                   
+                }
+                
+                
             }
         }
     }

@@ -11,6 +11,7 @@ public class TVPlug : MonoBehaviour
     [SerializeField] GameObject BrokenPlug;
     [SerializeField] int stepNumber1, stepNumber2;
     [SerializeField] Outline line;
+    bool TaskCompleted;
     public void PullOutBrokenPlug()
     {
         TVWireAnimator.SetBool("PlugOutWire", true);
@@ -29,7 +30,12 @@ public class TVPlug : MonoBehaviour
 
     public void NewPlugPluggedIN()
     {
-        TVWireAnimator.SetBool("PlugOutWire", false);
-        GameManager.instance.CheckSteps(stepNumber2);
+        if(!TaskCompleted)
+        {
+            TaskCompleted = true;
+            TVWireAnimator.SetBool("PlugOutWire", false);
+            GameManager.instance.CheckSteps(stepNumber2);
+        }
+        
     }
 }

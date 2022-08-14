@@ -7,6 +7,7 @@ public class WeldingHelmet : MonoBehaviour
 {
     [SerializeField] Transform PlayerCamera;
     bool HelmetPicked;
+    public int stepNumber;
     HandGrabInteractable handGrab;
     private void Start()
     {
@@ -31,7 +32,10 @@ public class WeldingHelmet : MonoBehaviour
        
             Debug.Log(Vector3.Distance(transform.position, PlayerCamera.position));
             if (Vector3.Distance(transform.position, PlayerCamera.position) < 0.2f)
+            {
                 transform.gameObject.SetActive(false);
+                GameManager.instance.CheckSteps(stepNumber);
+            }
         }
     }
 }

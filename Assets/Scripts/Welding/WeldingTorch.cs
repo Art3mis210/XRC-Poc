@@ -9,6 +9,9 @@ public class WeldingTorch : MonoBehaviour
     bool ObjectInFront;
 
     public bool WeldingMode;
+    public int stepNumber;
+    public Outline line;
+    bool firstTimePicked;
 
     [SerializeField] ParticleSystem Flame;
     [SerializeField] ParticleSystem Spark;
@@ -71,8 +74,17 @@ public class WeldingTorch : MonoBehaviour
     {
         Debug.Log("Torch Picked" + Status);
         Picked = Status;
-        
-        
+      
+        if (Status)
+        {
+            if(!firstTimePicked)
+            {
+                firstTimePicked = true;
+                GameManager.instance.CheckSteps(stepNumber);
+                line.enabled = false;
+            }
+
+        }
     }
 
     public void ObjectInTrigger(bool Status)
